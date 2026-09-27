@@ -8,327 +8,468 @@
   <script src="tala-player.js"></script>
 </head>
 <body>
-  <header class="site-header">
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 48 12" aria-hidden="true">
+          <line x1="2" y1="6" x2="46" y2="6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="14" cy="6" r="1.4" fill="currentColor"/>
+          <circle cx="20" cy="6" r="1.4" fill="currentColor"/>
+          <circle cx="26" cy="6" r="1.4" fill="currentColor"/>
+          <circle cx="32" cy="6" r="1.4" fill="currentColor"/>
+          <circle cx="38" cy="6" r="1.4" fill="currentColor"/>
+        </svg>
+        Carnatic Flute Lessons
+      </a>
+      <ul>
+        <li>
+          <a href="index.html" class="nav-link">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 L12 4 L20 11 M6 10 V20 H18 V10"/></svg>
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="basics.html" class="nav-link active">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <circle cx="9" cy="12" r="0.9" fill="currentColor" stroke="none"/>
+              <circle cx="13" cy="12" r="0.9" fill="currentColor" stroke="none"/>
+              <circle cx="17" cy="12" r="0.9" fill="currentColor" stroke="none"/>
+            </svg>
+            Basics
+          </a>
+        </li>
+        <!-- Future lesson links go here, following the same <li><a class="nav-link"> pattern -->
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-header">
     <div class="header-inner">
-      <h1>🎋 Carnatic Flute Lessons</h1>
-      <p>Lesson 1: Basics</p>
+      <svg class="page-icon" viewBox="0 0 48 12" aria-hidden="true">
+        <line x1="2" y1="6" x2="46" y2="6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="14" cy="6" r="1.4" fill="currentColor"/>
+        <circle cx="20" cy="6" r="1.4" fill="currentColor"/>
+        <circle cx="26" cy="6" r="1.4" fill="currentColor"/>
+        <circle cx="32" cy="6" r="1.4" fill="currentColor"/>
+        <circle cx="38" cy="6" r="1.4" fill="currentColor"/>
+      </svg>
+      <div>
+        <h1>Lesson 1: Basics</h1>
+        <p>Posture &amp; tone, first swara exercises, and your first Geetham, Varnam and Kriti.</p>
+      </div>
     </div>
   </header>
 
-  <nav class="site-nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="basics.html" class="active">Basics</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <p class="note">
-      This lesson covers everything a beginner needs before their first
-      recital piece: holding the flute, producing a clean Sa, the
-      foundational Sarali and Janta Varisai exercises, the seven talas,
-      and your very first Geetham, Varnam and Kriti. Swara notation is
-      <strong>simplified for teaching purposes</strong> — always check
-      against your teacher's notation for the authoritative version.
-    </p>
-
-    <!-- 1. GETTING STARTED -->
-    <section class="lesson-section" id="getting-started">
-      <h2>1. Getting Started with the Flute</h2>
-
-      <h3>Choosing your flute</h3>
-      <p>
-        Beginners usually start on either an <strong>E&#9839; scale (madhyama sruti)</strong>
-        flute or a <strong>D scale (also called the "concert" length)</strong> flute.
-        The E&#9839; flute is shorter, needs less breath pressure, and is the most
-        common recommendation for new students. A longer D or C scale flute is
-        typically taken up later once breath control and finger stretch improve.
-      </p>
-
-      <h3>Posture</h3>
+  <div class="page-layout">
+    <aside class="toc" id="toc">
+      <button type="button" class="toc-toggle" id="toc-toggle">
+        On this page
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <h4>On this page</h4>
       <ul>
-        <li>Sit cross-legged on the floor (or upright in a chair) with a straight spine.</li>
-        <li>Hold the flute horizontally, angled very slightly downward.</li>
-        <li>Keep both elbows relaxed and away from the body — don't hunch the shoulders.</li>
-        <li>Keep the head level; turn slightly toward the flute rather than dropping the chin.</li>
+        <li><a href="#getting-started"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12" stroke-width="2.5"/><circle cx="9" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1" fill="currentColor" stroke="none"/></svg> Getting Started</a></li>
+        <li><a href="#sarali-varisai"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l10-2v13" fill="none"/><circle cx="7" cy="18" r="2" fill="currentColor" stroke="none"/><circle cx="18" cy="16" r="2" fill="currentColor" stroke="none"/></svg> Sarali Varisai</a></li>
+        <li><a href="#janta-varisai"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V6l12-2v10" fill="none"/><circle cx="6" cy="17" r="2" fill="currentColor" stroke="none"/><circle cx="16" cy="15" r="2" fill="currentColor" stroke="none"/></svg> Janta Varisai</a></li>
+        <li><a href="#alankaras"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 13V6a1.5 1.5 0 0 1 3 0v5M11 11V4a1.5 1.5 0 0 1 3 0v7M14 12V5a1.5 1.5 0 0 1 3 0v9M17 14V9a1.5 1.5 0 0 1 3 0v6c0 3-2 6-5 6h-3c-2 0-3-1-4-2l-3-3.5c-.6-.7-.5-1.7.2-2.3.6-.5 1.5-.5 2.1 0L9 14" fill="none"/></svg> Alankaras &amp; Talas</a></li>
+        <li><a href="#tala-metronome"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21 L15 21 L12.5 4 L11.5 4 Z"/><path d="M10.5 8 L15.5 15"/><circle cx="12" cy="3" r="1" fill="currentColor" stroke="none"/></svg> Tala Metronome</a></li>
+        <li><a href="#geetham"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l10-2v13" fill="none"/><circle cx="7" cy="18" r="2" fill="currentColor" stroke="none"/><circle cx="18" cy="16" r="2" fill="currentColor" stroke="none"/></svg> Geetham</a></li>
+        <li><a href="#varnam"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l10-2v13" fill="none"/><circle cx="7" cy="18" r="2" fill="currentColor" stroke="none"/><circle cx="18" cy="16" r="2" fill="currentColor" stroke="none"/></svg> Varnam</a></li>
+        <li><a href="#kriti"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l10-2v13" fill="none"/><circle cx="7" cy="18" r="2" fill="currentColor" stroke="none"/><circle cx="18" cy="16" r="2" fill="currentColor" stroke="none"/></svg> Kriti</a></li>
+        <li><a href="#practice-checklist"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="6" height="6" rx="1"/><path d="M4.5 7l1 1 2-2"/><rect x="3" y="14" width="6" height="6" rx="1"/><path d="M4.5 17l1 1 2-2"/><line x1="12" y1="7" x2="21" y2="7"/><line x1="12" y1="17" x2="21" y2="17"/></svg> Practice Checklist</a></li>
       </ul>
+    </aside>
 
-      <h3>Holding the flute</h3>
-      <ul>
-        <li>The <strong>left hand</strong> covers the three holes closer to the blow hole (nearest the mouth).</li>
-        <li>The <strong>right hand</strong> covers the remaining holes further from the blow hole.</li>
-        <li>Use the pads of the fingers (not the tips) to fully seal each hole — no air should leak.</li>
-        <li>Rest the flute lightly on the base of the index fingers and the chin/lower lip; don't grip tightly.</li>
-      </ul>
-
-      <h3>Producing your first Sa (tone production)</h3>
-      <ol>
-        <li>Close all finger holes for the base "Sa" fingering for your flute.</li>
-        <li>Rest the blow hole gently against the lower lip, roughly covering half of it.</li>
-        <li>Shape the lips into a small, narrow opening (as if saying "phoo" softly).</li>
-        <li>Blow a slow, steady stream of air across (not into) the hole.</li>
-        <li>Adjust the angle and lip position until you hear a clear, steady tone rather than air noise.</li>
-        <li>Practice holding this single Sa for as long and as steadily as possible — this is the foundation of good tone (nada) for everything that follows.</li>
-      </ol>
-      <p class="note">Daily long-tone practice on Sa (and later Pa) builds the breath control every subsequent exercise depends on.</p>
-    </section>
-
-    <!-- 2. SARALI VARISAI -->
-    <section class="lesson-section" id="sarali-varisai">
-      <h2>2. Sarali Varisai — Raga Malahari, Adi Tala</h2>
-      <p>
-        Sarali Varisai are the first swara exercises every Carnatic student learns.
-        They are set in <strong>Raga Malahari</strong> and <strong>Adi Tala</strong>
-        (8 beats, grouped 4 + 2 + 2). Notes: S R G M P D N Ṡ (Ṡ = Sa in the upper octave).
-      </p>
-
-      <div class="tala-player" id="adi-metronome-1"></div>
-      <script>
-        TalaPlayer.init("adi-metronome-1", {
-          title: "Tala Metronome — Adi Tala (preset for this section)",
-          groups: [4, 2, 2],
-          bpm: 60,
-          presetKey: "adi"
-        });
-      </script>
-
-      <div class="overflow-x">
-        <table class="swara-table">
-          <caption>Exercise 1</caption>
-          <thead>
-            <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>S</td><td>R</td><td>G</td><td>M</td><td>P</td><td>D</td><td>N</td><td>Ṡ</td></tr>
-            <tr><td>Ṡ</td><td>N</td><td>D</td><td>P</td><td>M</td><td>G</td><td>R</td><td>S</td></tr>
-          </tbody>
-        </table>
-
-        <table class="swara-table">
-          <caption>Exercise 2</caption>
-          <thead>
-            <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>S</td><td>R</td><td>G</td><td>M</td><td>P</td><td>D</td><td>N</td><td>Ṡ</td></tr>
-            <tr><td>S</td><td>R</td><td>G</td><td>M</td><td>P</td><td>D</td><td>N</td><td>Ṡ</td></tr>
-            <tr><td>Ṡ</td><td>N</td><td>D</td><td>P</td><td>M</td><td>G</td><td>R</td><td>S</td></tr>
-            <tr><td>Ṡ</td><td>N</td><td>D</td><td>P</td><td>M</td><td>G</td><td>R</td><td>S</td></tr>
-          </tbody>
-        </table>
-
-        <table class="swara-table">
-          <caption>Exercise 3</caption>
-          <thead>
-            <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>S</td><td>R</td><td>G</td><td>R</td><td>G</td><td>M</td><td>P</td><td>M</td></tr>
-            <tr><td>P</td><td>D</td><td>N</td><td>D</td><td>N</td><td>Ṡ</td><td>-</td><td>-</td></tr>
-            <tr><td>Ṡ</td><td>N</td><td>D</td><td>N</td><td>D</td><td>P</td><td>M</td><td>P</td></tr>
-            <tr><td>M</td><td>G</td><td>R</td><td>G</td><td>R</td><td>S</td><td>-</td><td>-</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 3. JANTA VARISAI -->
-    <section class="lesson-section" id="janta-varisai">
-      <h2>3. Janta Varisai — Paired Notes</h2>
-      <p>
-        Janta Varisai repeat every swara twice before moving to the next, building
-        finger clarity and evenness. Still in Malahari, Adi Tala.
-      </p>
-
-      <div class="overflow-x">
-        <table class="swara-table">
-          <caption>Ascending</caption>
-          <thead>
-            <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>S</td><td>S</td><td>R</td><td>R</td><td>G</td><td>G</td><td>M</td><td>M</td></tr>
-            <tr><td>P</td><td>P</td><td>D</td><td>D</td><td>N</td><td>N</td><td>Ṡ</td><td>Ṡ</td></tr>
-          </tbody>
-        </table>
-
-        <table class="swara-table">
-          <caption>Descending</caption>
-          <thead>
-            <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Ṡ</td><td>Ṡ</td><td>N</td><td>N</td><td>D</td><td>D</td><td>P</td><td>P</td></tr>
-            <tr><td>M</td><td>M</td><td>G</td><td>G</td><td>R</td><td>R</td><td>S</td><td>S</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="note">Practice slowly at first, keeping both notes of each pair perfectly equal in length and volume, then gradually increase the metronome tempo.</p>
-    </section>
-
-    <!-- 4. ALANKARAS / SAPTA TALAS -->
-    <section class="lesson-section" id="alankaras">
-      <h2>4. Alankaras — The Seven Talas (Sapta Talas)</h2>
-      <p>
-        Alankaras set the Sarali Varisai swara pattern to each of the seven
-        traditional talas in turn, training the student to keep the same
-        melodic phrase steady across very different beat cycles.
-      </p>
-
-      <table class="checklist-table">
-        <thead>
-          <tr><th>Tala</th><th>Anga structure</th><th>Beats (this text's counting)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Dhruva</td><td>Laghu + Drutam + Laghu + Laghu</td><td>14 (4+2+4+4)</td></tr>
-          <tr><td>Matya</td><td>Laghu + Drutam + Laghu</td><td>10 (4+2+4)</td></tr>
-          <tr><td>Rupaka</td><td>Drutam + Laghu</td><td>3 (1+2, commonly clapped as a wave + 2 counts)</td></tr>
-          <tr><td>Jhampa</td><td>Laghu + Anudrutam + Drutam</td><td>7 (4+1+2)</td></tr>
-          <tr><td>Triputa</td><td>Laghu + Drutam + Drutam (tisra jati)</td><td>7 (3+2+2)</td></tr>
-          <tr><td>Ata</td><td>Laghu + Laghu + Drutam + Drutam (khanda jati)</td><td>14 (5+5+2+2)</td></tr>
-          <tr><td>Eka</td><td>Laghu only</td><td>4</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Example: Alankara in Triputa Tala (7 beats: 3 + 2 + 2)</h3>
-      <div class="overflow-x">
-        <table class="swara-table">
-          <thead>
-            <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>S</td><td>R</td><td>G</td><td>M</td><td>P</td><td>D</td><td>N</td></tr>
-            <tr><td>Ṡ</td><td>N</td><td>D</td><td>P</td><td>M</td><td>G</td><td>R</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>Try clapping the 3+2+2 pattern with the metronome below — the loud "clap" click marks the first beat of each group.</p>
-
-      <div class="tala-player" id="triputa-metronome"></div>
-      <script>
-        TalaPlayer.init("triputa-metronome", {
-          title: "Tala Metronome — Triputa Tala",
-          groups: [3, 2, 2],
-          bpm: 60,
-          presetKey: "triputa"
-        });
-      </script>
-    </section>
-
-    <!-- 5. GEETHAM -->
-    <section class="lesson-section" id="geetham">
-      <h2>5. First Geetham — "Sri Gananatha" (Raga Malahari, Tala Rupaka)</h2>
-      <p>
-        Geethams are simple, song-like pieces sung/played entirely in one speed, without
-        elaborate ornamentation — a gentle first step from pure swara exercises into
-        sahitya (lyrics). "Sri Gananatha" invokes Lord Ganesha and is traditionally the
-        very first Geetham taught. Tala: Rupaka (3 beats: 1 + 2).
-      </p>
-
-      <div class="tala-player" id="rupaka-metronome-1"></div>
-      <script>
-        TalaPlayer.init("rupaka-metronome-1", {
-          title: "Tala Metronome — Rupaka Tala (preset for this section)",
-          groups: [1, 2],
-          bpm: 50,
-          presetKey: "rupaka"
-        });
-      </script>
-
-      <div class="overflow-x">
-        <table class="swara-table">
-          <caption>Pallavi (opening line) — simplified swara + sahitya skeleton</caption>
-          <thead>
-            <tr><th>1</th><th>2</th><th>3</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>S</td><td>R G</td><td>M P</td></tr>
-            <tr class="sahitya"><td>Śrī</td><td>ga-na</td><td>nā-tha</td></tr>
-            <tr><td>D</td><td>N Ṡ</td><td>Ṡ -</td></tr>
-            <tr class="sahitya"><td>sin</td><td>dhū-ra</td><td>var-ṇa</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="note">Learn the swaras first without lyrics, then add the sahitya once the melody is comfortable.</p>
-    </section>
-
-    <!-- 6. VARNAM -->
-    <section class="lesson-section" id="varnam">
-      <h2>6. First Varnam — "Ninnukori" (Raga Mohanam, Tala Adi)</h2>
-      <p>
-        Varnams are more advanced practice pieces that build stamina, speed control and
-        raga bhava (mood). "Ninnukori" in the pentatonic Raga Mohanam (S R G P D) is
-        one of the most common first varnams taught to students.
-      </p>
-
-      <div class="overflow-x">
-        <table class="swara-table">
-          <caption>Pallavi (opening line) — simplified</caption>
-          <thead>
-            <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>P</td><td>D</td><td>Ṡ</td><td>Ṡ</td><td>N</td><td>D</td><td>P</td><td>-</td></tr>
-            <tr class="sahitya"><td>Nin</td><td>nu</td><td>ko</td><td>ri</td><td>yun</td><td>na</td><td>di</td><td>ra</td></tr>
-          </tbody>
-        </table>
-      </div>
-
+    <main class="lesson-content">
       <p class="note">
-        <strong>Practice tip — the 3 speeds (kaalam):</strong> Varnams are traditionally practiced
-        in three progressively faster speeds using the same tala cycle: first speed (each swara
-        gets a full beat), second speed (double the notes per beat), and third speed (four times
-        the notes per beat). Always master a stable first speed before attempting second or third
-        speed — use the Adi Tala metronome above and simply play more notes within each click as
-        you speed up your internal subdivision.
-      </p>
-    </section>
-
-    <!-- 7. KRITI -->
-    <section class="lesson-section" id="kriti">
-      <h2>7. First Kriti — "Vatapi Ganapatim" (Raga Hamsadhwani, Tala Adi)</h2>
-      <p>
-        Kritis are devotional compositions with pallavi, anupallavi and charanam
-        sections, rich in raga bhava and often taken up for concert performance.
-        "Vatapi Ganapatim" (composed by Muthuswami Dikshitar) in the pentatonic
-        Raga Hamsadhwani (S R G P N) is a landmark first kriti for most students.
+        This lesson covers everything a beginner needs before their first
+        recital piece: holding the flute, producing a clean Sa, the
+        foundational Sarali and Janta Varisai exercises, the seven talas,
+        and your very first Geetham, Varnam and Kriti. Swara notation is
+        <strong>simplified for teaching purposes</strong> — always check
+        against your teacher's notation for the authoritative version.
       </p>
 
-      <div class="overflow-x">
-        <table class="swara-table">
-          <caption>Pallavi — simplified swara + sahitya skeleton</caption>
+      <!-- 1. GETTING STARTED -->
+      <section class="lesson-section" id="getting-started">
+        <h2>
+          <svg viewBox="0 0 48 12" aria-hidden="true" style="width:1.6rem;height:0.5rem;">
+            <line x1="2" y1="6" x2="46" y2="6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="14" cy="6" r="1.4" fill="currentColor"/>
+            <circle cx="26" cy="6" r="1.4" fill="currentColor"/>
+            <circle cx="38" cy="6" r="1.4" fill="currentColor"/>
+          </svg>
+          1. Getting Started with the Flute
+        </h2>
+
+        <h3>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 12h6M12 9v6"/></svg>
+          Choosing your flute
+        </h3>
+        <p>
+          Beginners usually start on either an <strong>E&#9839; scale (madhyama sruti)</strong>
+          flute or a <strong>D scale (also called the "concert" length)</strong> flute.
+          The E&#9839; flute is shorter, needs less breath pressure, and is the most
+          common recommendation for new students. A longer D or C scale flute is
+          typically taken up later once breath control and finger stretch improve.
+        </p>
+
+        <h3>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c-4 3-7 6-7 10a7 7 0 0 0 14 0c0-4-3-7-7-10z"/></svg>
+          Posture
+        </h3>
+        <ul>
+          <li>Sit cross-legged on the floor (or upright in a chair) with a straight spine.</li>
+          <li>Hold the flute horizontally, angled very slightly downward.</li>
+          <li>Keep both elbows relaxed and away from the body — don't hunch the shoulders.</li>
+          <li>Keep the head level; turn slightly toward the flute rather than dropping the chin.</li>
+        </ul>
+
+        <h3>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 13V6a1.5 1.5 0 0 1 3 0v5M11 11V4a1.5 1.5 0 0 1 3 0v7M14 12V5a1.5 1.5 0 0 1 3 0v9M17 14V9a1.5 1.5 0 0 1 3 0v6c0 3-2 6-5 6h-3c-2 0-3-1-4-2l-3-3.5c-.6-.7-.5-1.7.2-2.3.6-.5 1.5-.5 2.1 0L9 14" fill="none"/></svg>
+          Holding the flute
+        </h3>
+        <ul>
+          <li>The <strong>left hand</strong> covers the three holes closer to the blow hole (nearest the mouth).</li>
+          <li>The <strong>right hand</strong> covers the remaining holes further from the blow hole.</li>
+          <li>Use the pads of the fingers (not the tips) to fully seal each hole — no air should leak.</li>
+          <li>Rest the flute lightly on the base of the index fingers and the chin/lower lip; don't grip tightly.</li>
+        </ul>
+
+        <h3>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><circle cx="9" cy="12" r="0.9" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="0.9" fill="currentColor" stroke="none"/></svg>
+          Producing your first Sa (tone production)
+        </h3>
+        <ol>
+          <li>Close all finger holes for the base "Sa" fingering for your flute.</li>
+          <li>Rest the blow hole gently against the lower lip, roughly covering half of it.</li>
+          <li>Shape the lips into a small, narrow opening (as if saying "phoo" softly).</li>
+          <li>Blow a slow, steady stream of air across (not into) the hole.</li>
+          <li>Adjust the angle and lip position until you hear a clear, steady tone rather than air noise.</li>
+          <li>Practice holding this single Sa for as long and as steadily as possible — this is the foundation of good tone (nada) for everything that follows.</li>
+        </ol>
+        <p class="note">Daily long-tone practice on Sa (and later Pa) builds the breath control every subsequent exercise depends on.</p>
+      </section>
+
+      <!-- 2. SARALI VARISAI -->
+      <section class="lesson-section" id="sarali-varisai">
+        <h2>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l10-2v13" fill="none"/><circle cx="7" cy="18" r="2" fill="currentColor" stroke="none"/><circle cx="18" cy="16" r="2" fill="currentColor" stroke="none"/></svg>
+          2. Sarali Varisai —
+          <span class="raga-name">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4-2-7-6-7-10a7 7 0 0 1 14 0c0 4-3 8-7 10z"/><path d="M12 21V8"/></svg>
+            Raga Malahari
+          </span>, Adi Tala
+        </h2>
+        <p>
+          Sarali Varisai are the first swara exercises every Carnatic student learns.
+          They are set in <strong>Raga Malahari</strong> and <strong>Adi Tala</strong>
+          (8 beats, grouped 4 + 2 + 2). Notes: S R G M P D N Ṡ (Ṡ = Sa in the upper octave).
+          The tonic <strong>Sa</strong> is highlighted in gold in every table below.
+        </p>
+
+        <div class="anchor-target" id="tala-metronome">
+          <div id="adi-metronome-1"></div>
+          <script>
+            TalaPlayer.init("adi-metronome-1", {
+              title: "Tala Metronome — Adi Tala (preset for this section)",
+              groups: [4, 2, 2],
+              bpm: 60,
+              presetKey: "adi"
+            });
+          </script>
+        </div>
+
+        <div class="overflow-x">
+          <div class="notation-card">
+            <p class="notation-caption">Exercise 1</p>
+            <table class="swara-table">
+              <thead>
+                <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="sa">S</td><td>R</td><td>G</td><td>M</td><td>P</td><td>D</td><td>N</td><td>Ṡ</td></tr>
+                <tr><td>Ṡ</td><td>N</td><td>D</td><td>P</td><td>M</td><td>G</td><td>R</td><td class="sa">S</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="notation-card">
+            <p class="notation-caption">Exercise 2</p>
+            <table class="swara-table">
+              <thead>
+                <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="sa">S</td><td>R</td><td>G</td><td>M</td><td>P</td><td>D</td><td>N</td><td>Ṡ</td></tr>
+                <tr><td class="sa">S</td><td>R</td><td>G</td><td>M</td><td>P</td><td>D</td><td>N</td><td>Ṡ</td></tr>
+                <tr><td>Ṡ</td><td>N</td><td>D</td><td>P</td><td>M</td><td>G</td><td>R</td><td class="sa">S</td></tr>
+                <tr><td>Ṡ</td><td>N</td><td>D</td><td>P</td><td>M</td><td>G</td><td>R</td><td class="sa">S</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="notation-card">
+            <p class="notation-caption">Exercise 3</p>
+            <table class="swara-table">
+              <thead>
+                <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="sa">S</td><td>R</td><td>G</td><td>R</td><td>G</td><td>M</td><td>P</td><td>M</td></tr>
+                <tr><td>P</td><td>D</td><td>N</td><td>D</td><td>N</td><td>Ṡ</td><td>-</td><td>-</td></tr>
+                <tr><td>Ṡ</td><td>N</td><td>D</td><td>N</td><td>D</td><td>P</td><td>M</td><td>P</td></tr>
+                <tr><td>M</td><td>G</td><td>R</td><td>G</td><td>R</td><td class="sa">S</td><td>-</td><td>-</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. JANTA VARISAI -->
+      <section class="lesson-section" id="janta-varisai">
+        <h2>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V6l12-2v10" fill="none"/><circle cx="6" cy="17" r="2" fill="currentColor" stroke="none"/><circle cx="16" cy="15" r="2" fill="currentColor" stroke="none"/></svg>
+          3. Janta Varisai — Paired Notes
+        </h2>
+        <p>
+          Janta Varisai repeat every swara twice before moving to the next, building
+          finger clarity and evenness. Still in
+          <span class="raga-name">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4-2-7-6-7-10a7 7 0 0 1 14 0c0 4-3 8-7 10z"/><path d="M12 21V8"/></svg>
+            Malahari
+          </span>, Adi Tala.
+        </p>
+
+        <div class="overflow-x">
+          <div class="notation-card">
+            <p class="notation-caption">Ascending</p>
+            <table class="swara-table">
+              <thead>
+                <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="sa">S</td><td class="sa">S</td><td>R</td><td>R</td><td>G</td><td>G</td><td>M</td><td>M</td></tr>
+                <tr><td>P</td><td>P</td><td>D</td><td>D</td><td>N</td><td>N</td><td>Ṡ</td><td>Ṡ</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="notation-card">
+            <p class="notation-caption">Descending</p>
+            <table class="swara-table">
+              <thead>
+                <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Ṡ</td><td>Ṡ</td><td>N</td><td>N</td><td>D</td><td>D</td><td>P</td><td>P</td></tr>
+                <tr><td>M</td><td>M</td><td>G</td><td>G</td><td>R</td><td>R</td><td class="sa">S</td><td class="sa">S</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="note">Practice slowly at first, keeping both notes of each pair perfectly equal in length and volume, then gradually increase the metronome tempo.</p>
+      </section>
+
+      <!-- 4. ALANKARAS / SAPTA TALAS -->
+      <section class="lesson-section" id="alankaras">
+        <h2>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 13V6a1.5 1.5 0 0 1 3 0v5M11 11V4a1.5 1.5 0 0 1 3 0v7M14 12V5a1.5 1.5 0 0 1 3 0v9M17 14V9a1.5 1.5 0 0 1 3 0v6c0 3-2 6-5 6h-3c-2 0-3-1-4-2l-3-3.5c-.6-.7-.5-1.7.2-2.3.6-.5 1.5-.5 2.1 0L9 14" fill="none"/></svg>
+          4. Alankaras — The Seven Talas (Sapta Talas)
+        </h2>
+        <p>
+          Alankaras set the Sarali Varisai swara pattern to each of the seven
+          traditional talas in turn, training the student to keep the same
+          melodic phrase steady across very different beat cycles.
+        </p>
+
+        <table class="checklist-table">
           <thead>
-            <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+            <tr><th>Tala</th><th>Anga structure</th><th>Beats (this text's counting)</th></tr>
           </thead>
           <tbody>
-            <tr><td>G</td><td>M</td><td>P</td><td>N</td><td>Ṡ</td><td>N</td><td>P</td><td>-</td></tr>
-            <tr class="sahitya"><td>Vā</td><td>tā</td><td>pi</td><td>ga</td><td>ṇa</td><td>pa</td><td>tim</td><td>bha-je</td></tr>
+            <tr><td>Dhruva</td><td>Laghu + Drutam + Laghu + Laghu</td><td>14 (4+2+4+4)</td></tr>
+            <tr><td>Matya</td><td>Laghu + Drutam + Laghu</td><td>10 (4+2+4)</td></tr>
+            <tr><td>Rupaka</td><td>Drutam + Laghu</td><td>3 (1+2, commonly clapped as a wave + 2 counts)</td></tr>
+            <tr><td>Jhampa</td><td>Laghu + Anudrutam + Drutam</td><td>7 (4+1+2)</td></tr>
+            <tr><td>Triputa</td><td>Laghu + Drutam + Drutam (tisra jati)</td><td>7 (3+2+2)</td></tr>
+            <tr><td>Ata</td><td>Laghu + Laghu + Drutam + Drutam (khanda jati)</td><td>14 (5+5+2+2)</td></tr>
+            <tr><td>Eka</td><td>Laghu only</td><td>4</td></tr>
           </tbody>
         </table>
-      </div>
-    </section>
 
-    <!-- 8. PRACTICE CHECKLIST -->
-    <section class="lesson-section" id="practice-checklist">
-      <h2>8. Daily Practice Checklist</h2>
-      <table class="checklist-table">
-        <thead>
-          <tr><th>Item</th><th>Focus</th><th>Suggested time</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Long tones on Sa &amp; Pa</td><td>Breath control, steady tone</td><td>5 min</td></tr>
-          <tr><td>Sarali Varisai (all exercises)</td><td>Finger clarity, Adi Tala steadiness</td><td>10 min</td></tr>
-          <tr><td>Janta Varisai</td><td>Even paired notes, tongue/breath control</td><td>10 min</td></tr>
-          <tr><td>Alankaras (rotate through the 7 talas)</td><td>Tala awareness across cycles</td><td>10 min</td></tr>
-          <tr><td>Geetham / Varnam / Kriti in progress</td><td>Sahitya, raga bhava, sangatis</td><td>15 min</td></tr>
-          <tr><td>Metronome practice at a new tempo</td><td>Gradually raising speed with accuracy</td><td>5 min</td></tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
+        <h3>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l10-2v13" fill="none"/><circle cx="7" cy="18" r="2" fill="currentColor" stroke="none"/><circle cx="18" cy="16" r="2" fill="currentColor" stroke="none"/></svg>
+          Example: Alankara in Triputa Tala (7 beats: 3 + 2 + 2)
+        </h3>
+        <div class="overflow-x">
+          <div class="notation-card">
+            <table class="swara-table">
+              <thead>
+                <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="sa">S</td><td>R</td><td>G</td><td>M</td><td>P</td><td>D</td><td>N</td></tr>
+                <tr><td>Ṡ</td><td>N</td><td>D</td><td>P</td><td>M</td><td>G</td><td>R</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p>Try clapping the 3+2+2 pattern with the metronome below — the loud "clap" click marks the first beat of each group.</p>
+
+        <div id="triputa-metronome"></div>
+        <script>
+          TalaPlayer.init("triputa-metronome", {
+            title: "Tala Metronome — Triputa Tala",
+            groups: [3, 2, 2],
+            bpm: 60,
+            presetKey: "triputa"
+          });
+        </script>
+      </section>
+
+      <!-- 5. GEETHAM -->
+      <section class="lesson-section" id="geetham">
+        <h2>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l10-2v13" fill="none"/><circle cx="7" cy="18" r="2" fill="currentColor" stroke="none"/><circle cx="18" cy="16" r="2" fill="currentColor" stroke="none"/></svg>
+          5. First Geetham — "Sri Gananatha" (<span class="raga-name"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4-2-7-6-7-10a7 7 0 0 1 14 0c0 4-3 8-7 10z"/><path d="M12 21V8"/></svg> Raga Malahari</span>, Tala Rupaka)
+        </h2>
+        <p>
+          Geethams are simple, song-like pieces sung/played entirely in one speed, without
+          elaborate ornamentation — a gentle first step from pure swara exercises into
+          sahitya (lyrics). "Sri Gananatha" invokes Lord Ganesha and is traditionally the
+          very first Geetham taught. Tala: Rupaka (3 beats: 1 + 2).
+        </p>
+
+        <div id="rupaka-metronome-1"></div>
+        <script>
+          TalaPlayer.init("rupaka-metronome-1", {
+            title: "Tala Metronome — Rupaka Tala (preset for this section)",
+            groups: [1, 2],
+            bpm: 50,
+            presetKey: "rupaka"
+          });
+        </script>
+
+        <div class="overflow-x">
+          <div class="notation-card">
+            <p class="notation-caption">Pallavi (opening line) — simplified swara + sahitya skeleton</p>
+            <table class="swara-table">
+              <thead>
+                <tr><th>1</th><th>2</th><th>3</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="sa">S</td><td>R G</td><td>M P</td></tr>
+                <tr class="sahitya"><td>Śrī</td><td>ga-na</td><td>nā-tha</td></tr>
+                <tr><td>D</td><td>N Ṡ</td><td>Ṡ -</td></tr>
+                <tr class="sahitya"><td>sin</td><td>dhū-ra</td><td>var-ṇa</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="note">Learn the swaras first without lyrics, then add the sahitya once the melody is comfortable.</p>
+      </section>
+
+      <!-- 6. VARNAM -->
+      <section class="lesson-section" id="varnam">
+        <h2>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l10-2v13" fill="none"/><circle cx="7" cy="18" r="2" fill="currentColor" stroke="none"/><circle cx="18" cy="16" r="2" fill="currentColor" stroke="none"/></svg>
+          6. First Varnam — "Ninnukori" (<span class="raga-name"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4-2-7-6-7-10a7 7 0 0 1 14 0c0 4-3 8-7 10z"/><path d="M12 21V8"/></svg> Raga Mohanam</span>, Tala Adi)
+        </h2>
+        <p>
+          Varnams are more advanced practice pieces that build stamina, speed control and
+          raga bhava (mood). "Ninnukori" in the pentatonic Raga Mohanam (S R G P D) is
+          one of the most common first varnams taught to students.
+        </p>
+
+        <div class="overflow-x">
+          <div class="notation-card">
+            <p class="notation-caption">Pallavi (opening line) — simplified</p>
+            <table class="swara-table">
+              <thead>
+                <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>P</td><td>D</td><td>Ṡ</td><td>Ṡ</td><td>N</td><td>D</td><td>P</td><td>-</td></tr>
+                <tr class="sahitya"><td>Nin</td><td>nu</td><td>ko</td><td>ri</td><td>yun</td><td>na</td><td>di</td><td>ra</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <p class="note">
+          <strong>Practice tip — the 3 speeds (kaalam):</strong> Varnams are traditionally practiced
+          in three progressively faster speeds using the same tala cycle: first speed (each swara
+          gets a full beat), second speed (double the notes per beat), and third speed (four times
+          the notes per beat). Always master a stable first speed before attempting second or third
+          speed — use the Adi Tala metronome above and simply play more notes within each click as
+          you speed up your internal subdivision.
+        </p>
+      </section>
+
+      <!-- 7. KRITI -->
+      <section class="lesson-section" id="kriti">
+        <h2>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l10-2v13" fill="none"/><circle cx="7" cy="18" r="2" fill="currentColor" stroke="none"/><circle cx="18" cy="16" r="2" fill="currentColor" stroke="none"/></svg>
+          7. First Kriti — "Vatapi Ganapatim" (<span class="raga-name"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4-2-7-6-7-10a7 7 0 0 1 14 0c0 4-3 8-7 10z"/><path d="M12 21V8"/></svg> Raga Hamsadhwani</span>, Tala Adi)
+        </h2>
+        <p>
+          Kritis are devotional compositions with pallavi, anupallavi and charanam
+          sections, rich in raga bhava and often taken up for concert performance.
+          "Vatapi Ganapatim" (composed by Muthuswami Dikshitar) in the pentatonic
+          Raga Hamsadhwani (S R G P N) is a landmark first kriti for most students.
+        </p>
+
+        <div class="overflow-x">
+          <div class="notation-card">
+            <p class="notation-caption">Pallavi — simplified swara + sahitya skeleton</p>
+            <table class="swara-table">
+              <thead>
+                <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>G</td><td>M</td><td>P</td><td>N</td><td>Ṡ</td><td>N</td><td>P</td><td>-</td></tr>
+                <tr class="sahitya"><td>Vā</td><td>tā</td><td>pi</td><td>ga</td><td>ṇa</td><td>pa</td><td>tim</td><td>bha-je</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. PRACTICE CHECKLIST -->
+      <section class="lesson-section" id="practice-checklist">
+        <h2>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="6" height="6" rx="1"/><path d="M4.5 7l1 1 2-2"/><rect x="3" y="14" width="6" height="6" rx="1"/><path d="M4.5 17l1 1 2-2"/><line x1="12" y1="7" x2="21" y2="7"/><line x1="12" y1="17" x2="21" y2="17"/></svg>
+          8. Daily Practice Checklist
+        </h2>
+        <table class="checklist-table">
+          <thead>
+            <tr><th>Item</th><th>Focus</th><th>Suggested time</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Long tones on Sa &amp; Pa</td><td>Breath control, steady tone</td><td>5 min</td></tr>
+            <tr><td>Sarali Varisai (all exercises)</td><td>Finger clarity, Adi Tala steadiness</td><td>10 min</td></tr>
+            <tr><td>Janta Varisai</td><td>Even paired notes, tongue/breath control</td><td>10 min</td></tr>
+            <tr><td>Alankaras (rotate through the 7 talas)</td><td>Tala awareness across cycles</td><td>10 min</td></tr>
+            <tr><td>Geetham / Varnam / Kriti in progress</td><td>Sahitya, raga bhava, sangatis</td><td>15 min</td></tr>
+            <tr><td>Metronome practice at a new tempo</td><td>Gradually raising speed with accuracy</td><td>5 min</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
 
   <footer class="site-footer">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 18V5l10-2v13" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7" cy="18" r="2.2" fill="currentColor" stroke="none"/><circle cx="18" cy="16" r="2.2" fill="currentColor" stroke="none"/></svg>
     <p>Carnatic Flute Lessons &mdash; a static, offline-friendly lesson site.</p>
   </footer>
+
+  <script>
+    // Collapsible table of contents on mobile (desktop keeps it always open via CSS).
+    document.getElementById("toc-toggle").addEventListener("click", function () {
+      document.getElementById("toc").classList.toggle("open");
+    });
+  </script>
 </body>
 </html>

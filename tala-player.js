@@ -87,7 +87,21 @@
     var title = opts.title || "Tala Metronome";
     var showTalaSelect = opts.showTalaSelect !== false;
 
-    var html = '<h4>' + escapeHtml(title) + '</h4>';
+    // Simple inline SVG metronome icon (no external icon font/CDN).
+    var metronomeIcon = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">' +
+      '<path d="M9 21 L15 21 L12.5 4 L11.5 4 Z"/>' +
+      '<path d="M12 4 L12 3"/>' +
+      '<path d="M10.5 8 L15.5 15"/>' +
+      '<circle cx="12" cy="3" r="1" fill="currentColor" stroke="none"/>' +
+      '</svg>';
+    var playIcon = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" stroke="none">' +
+      '<path d="M7 5 L19 12 L7 19 Z"/>' +
+      '</svg>';
+    var stopIcon = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" stroke="none">' +
+      '<rect x="6" y="6" width="12" height="12" rx="1.5"/>' +
+      '</svg>';
+
+    var html = '<h4>' + metronomeIcon + escapeHtml(title) + '</h4>';
     html += '<div class="controls">';
 
     if (showTalaSelect) {
@@ -105,8 +119,8 @@
       '</label>';
 
     html += '<div class="buttons">' +
-      '<button type="button" class="btn-play" id="' + uid + '_play">▶ Play</button>' +
-      '<button type="button" class="btn-stop" id="' + uid + '_stop">■ Stop</button>' +
+      '<button type="button" class="btn-play" id="' + uid + '_play">' + playIcon + ' Play</button>' +
+      '<button type="button" class="btn-stop" id="' + uid + '_stop" disabled>' + stopIcon + ' Stop</button>' +
       '</div>';
 
     html += '</div>'; // .controls

@@ -1,25 +1,36 @@
 /* ============================================================
    Carnatic Flute Lessons — shared stylesheet
    Used by all pages (index.html, basics.html, future lessons).
-   No external dependencies — safe for file:// and static hosting.
+   No external dependencies (fonts/icons/images) — everything is
+   drawn with CSS or inline SVG, safe for file:// and static hosting.
    ============================================================ */
 
 :root {
-  --color-bg: #fdfaf5;
-  --color-surface: #ffffff;
-  --color-primary: #8a3b2b;
-  --color-primary-dark: #6b2c20;
-  --color-accent: #d98c3f;
-  --color-text: #2b2117;
-  --color-muted: #6b5c4d;
-  --color-border: #e8ddcd;
-  --radius: 10px;
-  --max-width: 960px;
+  /* Warm maroon + gold palette evoking Carnatic classical music */
+  --color-bg: #fbf3e6;
+  --color-surface: #fffaf1;
+  --color-surface-alt: #f8ecd8;
+  --color-primary: #7a1f2b;      /* deep maroon */
+  --color-primary-dark: #500f18; /* darker maroon, header/nav */
+  --color-accent: #c9973f;       /* gold */
+  --color-accent-light: #e8c77e; /* light gold */
+  --color-text: #2b1810;
+  --color-muted: #6b5142;
+  --color-border: #e7d3ae;
+  --color-sa: #7a1f2b;           /* tonic Sa highlight color */
+  --radius: 12px;
+  --max-width: 1040px;
+  --shadow-soft: 0 2px 8px rgba(80, 15, 24, 0.08);
+  --shadow-hover: 0 8px 20px rgba(80, 15, 24, 0.14);
   font-size: 16px;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html, body {
@@ -28,10 +39,15 @@ html, body {
 }
 
 body {
-  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-  background: var(--color-bg);
+  font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(201, 151, 63, 0.10) 0, transparent 45%),
+    radial-gradient(circle at 90% 0%, rgba(122, 31, 43, 0.07) 0, transparent 40%),
+    repeating-linear-gradient(135deg, rgba(122, 31, 43, 0.02) 0 2px, transparent 2px 26px);
+  background-attachment: fixed;
   color: var(--color-text);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 a {
@@ -42,76 +58,293 @@ a:hover {
   color: var(--color-accent);
 }
 
-.site-header {
-  background: var(--color-primary);
+svg.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.15em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Sticky top nav ---------- */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-primary-dark);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+
+.site-nav .nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.6rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-nav .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #fdf3e0;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
+}
+
+.site-nav .brand svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--color-accent-light);
+}
+
+.site-nav .brand:hover {
   color: #fff;
 }
 
-.site-header .header-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1rem 1.25rem;
-}
-
-.site-header h1 {
-  margin: 0 0 0.25rem 0;
-  font-size: 1.5rem;
-}
-
-.site-header p {
-  margin: 0;
-  color: #f2ddc9;
-  font-size: 0.95rem;
-}
-
-.site-nav {
-  background: var(--color-primary-dark);
-}
-
 .site-nav ul {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1.25rem;
+  margin: 0;
+  padding: 0;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1rem;
+  gap: 0.25rem 1.25rem;
 }
 
-.site-nav a {
-  display: inline-block;
-  padding: 0.65rem 0.25rem;
-  color: #fce9d3;
+.site-nav a.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.15rem;
+  color: #f1dcc0;
   text-decoration: none;
   font-weight: 600;
+  font-size: 0.95rem;
   border-bottom: 3px solid transparent;
 }
 
-.site-nav a:hover,
-.site-nav a.active {
+.site-nav a.nav-link svg {
+  color: var(--color-accent-light);
+}
+
+.site-nav a.nav-link:hover,
+.site-nav a.nav-link.active {
   color: #fff;
   border-bottom-color: var(--color-accent);
 }
 
-main {
+.site-nav .nav-link.is-placeholder {
+  opacity: 0.55;
+  cursor: default;
+}
+
+/* ---------- Hero (index.html) ---------- */
+
+.hero {
+  background:
+    linear-gradient(160deg, var(--color-primary-dark) 0%, var(--color-primary) 62%, #8a2c1f 100%);
+  color: #fdf3e0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.25rem 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.hero .hero-text {
+  flex: 1 1 320px;
+  min-width: 260px;
+}
+
+.hero h1 {
+  margin: 0 0 0.6rem 0;
+  font-size: 2.1rem;
+  line-height: 1.25;
+}
+
+.hero p.tagline {
+  margin: 0;
+  color: #f0d9b8;
+  font-size: 1.05rem;
+  max-width: 42ch;
+}
+
+.hero .hero-illustration {
+  flex: 0 0 auto;
+  width: 220px;
+  max-width: 45vw;
+  color: var(--color-accent-light);
+}
+
+.hero .hero-waves {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  color: var(--color-bg);
+}
+
+/* Decorative note motifs scattered in the hero */
+.hero .floating-note {
+  position: absolute;
+  color: rgba(232, 199, 126, 0.35);
+  z-index: 0;
+}
+
+/* ---------- Page header (basics.html, non-hero pages) ---------- */
+
+.page-header {
+  background: linear-gradient(120deg, var(--color-primary-dark), var(--color-primary));
+  color: #fdf3e0;
+}
+
+.page-header .header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.page-header .header-inner svg.page-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  color: var(--color-accent-light);
+}
+
+.page-header h1 {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.5rem;
+}
+
+.page-header p {
+  margin: 0;
+  color: #f0d9b8;
+  font-size: 0.95rem;
+}
+
+/* ---------- Page layout with optional TOC sidebar ---------- */
+
+.page-layout {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+main.no-sidebar {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 1.5rem 1.25rem 3rem;
 }
 
+.lesson-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Table of contents */
+
+.toc {
+  flex: 0 0 220px;
+  position: sticky;
+  top: 4.5rem;
+  align-self: flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.toc h4 {
+  margin: 0 0 0.6rem 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.toc a {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 0.88rem;
+  padding: 0.25rem 0.35rem;
+  border-radius: 6px;
+}
+
+.toc a svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.toc a:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-primary);
+}
+
+/* Collapsible TOC toggle, shown only on mobile */
+.toc-toggle {
+  display: none;
+}
+
+/* ---------- Footer ---------- */
+
 footer.site-footer {
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem 1.25rem;
   color: var(--color-muted);
   font-size: 0.85rem;
+}
+
+footer.site-footer svg {
+  color: var(--color-accent);
+  margin-bottom: 0.4rem;
 }
 
 /* ---------- Cards (used on the index/landing page) ---------- */
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
   margin: 1.5rem 0;
 }
 
@@ -119,48 +352,81 @@ footer.site-footer {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  padding: 1.25rem;
+  padding: 1.4rem;
   text-decoration: none;
   color: var(--color-text);
-  display: block;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-shadow: var(--shadow-soft);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card .card-icon {
+  width: 42px;
+  height: 42px;
+  color: var(--color-primary);
+  background: var(--color-surface-alt);
+  border-radius: 50%;
+  padding: 8px;
 }
 
 .card h3 {
-  margin: 0 0 0.4rem 0;
+  margin: 0;
   color: var(--color-primary);
+  font-size: 1.15rem;
 }
 
 .card p {
   margin: 0;
   color: var(--color-muted);
   font-size: 0.92rem;
+  flex: 1 1 auto;
 }
 
 .card .tag {
   display: inline-block;
-  margin-top: 0.6rem;
+  margin-top: 0.2rem;
   font-size: 0.75rem;
   background: var(--color-accent);
   color: #fff;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
+  align-self: flex-start;
+}
+
+.card .btn-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  margin-top: 0.4rem;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+
+.card .btn-start:hover {
+  background: var(--color-primary-dark);
 }
 
 .card.card-disabled {
-  opacity: 0.55;
+  opacity: 0.6;
   cursor: default;
 }
 
 .card.card-disabled:hover {
   transform: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-soft);
 }
 
 /* ---------- Section styling ---------- */
@@ -169,30 +435,86 @@ section.lesson-section {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  padding: 1.25rem 1.5rem;
-  margin: 1.5rem 0;
+  padding: 1.4rem 1.6rem;
+  margin: 1.75rem 0;
+  box-shadow: var(--shadow-soft);
+  scroll-margin-top: 4.5rem;
 }
 
 section.lesson-section h2 {
   color: var(--color-primary);
   border-bottom: 2px solid var(--color-border);
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+section.lesson-section h2 svg {
+  color: var(--color-accent);
+  width: 1.3rem;
+  height: 1.3rem;
+  flex-shrink: 0;
 }
 
 section.lesson-section h3 {
   color: var(--color-primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+section.lesson-section h3 svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.raga-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.raga-name svg {
+  width: 0.95em;
+  height: 0.95em;
+  color: var(--color-accent);
 }
 
 .note {
-  background: #fdf1de;
+  background: var(--color-surface-alt);
   border-left: 4px solid var(--color-accent);
-  padding: 0.6rem 1rem;
+  padding: 0.7rem 1rem;
   border-radius: 4px;
   font-size: 0.92rem;
   margin: 1rem 0;
 }
 
 /* ---------- Swara notation tables/blocks ---------- */
+
+.notation-card {
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 8px;
+  padding: 0.9rem 1rem 1rem;
+  margin: 0.9rem 0 1.25rem;
+}
+
+.notation-card .notation-caption {
+  font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
 .notation, .notation table {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
@@ -201,8 +523,9 @@ section.lesson-section h3 {
 table.swara-table {
   border-collapse: collapse;
   width: 100%;
-  margin: 0.75rem 0 1.25rem;
+  margin: 0;
   font-size: 0.95rem;
+  background: var(--color-surface);
 }
 
 table.swara-table caption {
@@ -210,7 +533,7 @@ table.swara-table caption {
   font-weight: 600;
   color: var(--color-muted);
   margin-bottom: 0.35rem;
-  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 table.swara-table th,
@@ -221,24 +544,21 @@ table.swara-table td {
 }
 
 table.swara-table th {
-  background: #f5ece0;
-  color: var(--color-primary-dark);
+  background: var(--color-primary);
+  color: #fdf3e0;
+  font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+table.swara-table td.sa {
+  color: var(--color-sa);
+  font-weight: 700;
+  background: #f6e6cf;
 }
 
 table.swara-table td.sahitya {
   color: var(--color-muted);
-  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   font-style: italic;
-}
-
-pre.notation-block {
-  background: #f7f1e6;
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  padding: 0.75rem 1rem;
-  overflow-x: auto;
-  font-size: 0.95rem;
-  line-height: 1.7;
 }
 
 .overflow-x {
@@ -261,27 +581,38 @@ table.checklist-table td {
 }
 
 table.checklist-table th {
-  background: #f5ece0;
-  color: var(--color-primary-dark);
+  background: var(--color-primary);
+  color: #fdf3e0;
 }
 
 table.checklist-table tr:nth-child(even) {
-  background: #fbf7f0;
+  background: var(--color-surface-alt);
 }
 
 /* ---------- Tala metronome widget ---------- */
 
 .tala-player {
-  background: #fbf6ec;
+  background: var(--color-surface-alt);
   border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-primary);
   border-radius: var(--radius);
-  padding: 1rem 1.25rem;
+  padding: 1.1rem 1.3rem;
   margin: 1rem 0 1.5rem;
+  box-shadow: var(--shadow-soft);
 }
 
 .tala-player h4 {
-  margin: 0 0 0.75rem 0;
+  margin: 0 0 0.85rem 0;
   color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.tala-player h4 svg {
+  color: var(--color-accent);
+  width: 1.15rem;
+  height: 1.15rem;
 }
 
 .tala-player .controls {
@@ -312,6 +643,7 @@ table.checklist-table tr:nth-child(even) {
 
 .tala-player input[type="range"] {
   width: 140px;
+  accent-color: var(--color-primary);
 }
 
 .tala-player .bpm-value {
@@ -321,16 +653,24 @@ table.checklist-table tr:nth-child(even) {
 
 .tala-player .buttons {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .tala-player button {
   font: inherit;
-  padding: 0.45rem 1rem;
-  border-radius: 6px;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
   border: none;
   cursor: pointer;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tala-player button svg {
+  width: 0.95rem;
+  height: 0.95rem;
 }
 
 .tala-player .btn-play {
@@ -338,7 +678,7 @@ table.checklist-table tr:nth-child(even) {
   color: #fff;
 }
 
-.tala-player .btn-play:hover {
+.tala-player .btn-play:hover:not(:disabled) {
   background: var(--color-primary-dark);
 }
 
@@ -347,8 +687,13 @@ table.checklist-table tr:nth-child(even) {
   color: var(--color-text);
 }
 
-.tala-player .btn-stop:hover {
-  background: #d9cbb2;
+.tala-player .btn-stop:hover:not(:disabled) {
+  background: #d9c090;
+}
+
+.tala-player button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .tala-player .custom-pattern-field {
@@ -369,19 +714,23 @@ table.checklist-table tr:nth-child(even) {
 }
 
 .beat-display .beat {
-  padding: 0.1em 0.3em;
-  border-radius: 4px;
+  padding: 0.15em 0.35em;
+  border-radius: 6px;
   color: var(--color-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
 }
 
 .beat-display .beat.group-start {
   font-weight: 700;
   color: var(--color-primary-dark);
+  border-color: var(--color-accent);
 }
 
 .beat-display .beat.active {
   background: var(--color-accent);
   color: #fff;
+  border-color: var(--color-accent);
 }
 
 .beat-display .group-sep {
@@ -389,19 +738,80 @@ table.checklist-table tr:nth-child(even) {
   padding: 0 0.1em;
 }
 
+.anchor-target {
+  scroll-margin-top: 4.5rem;
+}
+
 /* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .page-layout {
+    flex-direction: column;
+  }
+
+  .toc {
+    position: static;
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .toc ul {
+    display: none;
+  }
+
+  .toc.open ul {
+    display: flex;
+  }
+
+  .toc-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+    cursor: pointer;
+  }
+
+  .toc-toggle svg {
+    transition: transform 0.15s ease;
+  }
+
+  .toc.open .toc-toggle svg {
+    transform: rotate(180deg);
+  }
+
+  .toc h4 {
+    display: none;
+  }
+}
 
 @media (max-width: 600px) {
   :root {
     font-size: 15px;
   }
 
-  .site-nav ul {
-    gap: 0.1rem 0.75rem;
+  .hero .hero-inner {
+    padding: 2.25rem 1.25rem 2.75rem;
+  }
+
+  .hero h1 {
+    font-size: 1.65rem;
+  }
+
+  .hero .hero-illustration {
+    width: 150px;
   }
 
   section.lesson-section {
-    padding: 1rem;
+    padding: 1.1rem;
   }
 
   .tala-player .controls {
